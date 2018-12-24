@@ -7,7 +7,7 @@ class GitlabHookController < ActionController::Base
 
 
   def index
-    if request.post?
+  #  if request.post?
       repository = find_repository
       p repository.inspect
       git_success = true
@@ -24,9 +24,9 @@ class GitlabHookController < ActionController::Base
           render(:text => "Git command failed on repository: #{repository.identifier}!", :status => :not_acceptable)
         end
       end
-    else
-      raise ActionController::RoutingError.new('Not Found')
-    end
+   # else
+   #   raise ActionController::RoutingError.new('Not Found')
+   # end
   end
 
 
